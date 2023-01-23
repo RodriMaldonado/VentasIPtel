@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   title = 'autocomplete';
 
   filLocalidades: Observable<string[]>;
-  localidades: string[] = ["Saldan","Venado tuerto","Cordoba"]
+  localidades: string[] = ["Saldan","Venado tuerto","Cordoba","Velez sarsfield"]
 
 
 control = new FormControl();
