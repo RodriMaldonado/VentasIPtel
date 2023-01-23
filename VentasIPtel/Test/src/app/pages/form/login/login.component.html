@@ -1,0 +1,15 @@
+<div >
+    <form>
+    <mat-form-field>
+        <mat-label>
+          
+        </mat-label>
+        <input class="input"type="text" matInput  [formControl]="control" [matAutocomplete]="auto" />
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let localidad of filLocalidades | async" [value]="localidad">
+                {{localidad}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>
+</div>
