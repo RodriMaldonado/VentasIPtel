@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms'
 import { Observable } from 'rxjs';
-import { map, startWith,debounceTime } from 'rxjs/operators';
+import { map, startWith,debounceTime,distinctUntilChanged,switchMap,filter } from 'rxjs/operators';
+import { FormService } from 'src/app/servicios/form.service';
 
 
 @Component({
@@ -12,37 +13,41 @@ import { map, startWith,debounceTime } from 'rxjs/operators';
 export class LoginComponent implements OnInit {
   title = 'autocomplete';
 
-  filLocalidades: Observable<string[]>;
-  localidades: string[] = ["Saldan","Venado tuerto","Cordoba","Velez sarsfield"]
+  myControl = new FormControl();
+  Sucursal = [];
+  filteredOptions: Observable<any>;
+  /* localidades: string[] = ["Saldan","Venado tuerto","Cordoba","Velez sarsfield"]
+ */
+  
 
 
-control = new FormControl();
 
+  constructor(private service: FormService) {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+     startWith(''),
+     debounceTime(400),
+     distinctUntilChanged(),
+     switchMap(val => {
+           return this._filter(val || '')
+      }) 
+   )
 
-  constructor(  /* private service : FormService, private fb : FormBuilder  */  ) { 
-    
+   
   }
+ 
+ _filter(val: any): Observable<any> {
+
+   return this.service.obtenerSucursalesSiga()
+    .pipe(
+      map(response => response.datosSucursales.Sucursal.filter((Sucursal:any) => { 
+        return Sucursal.Nombre.toLowerCase().indexOf(val.toLowerCase()) === 0
+      }))
+    )
+  }  
 
   ngOnInit() {
-    
-    this.filLocalidades = this.control.valueChanges.pipe(
-      debounceTime(500),
-      startWith(''),
-      map(val => this._filter(val))
-    );
-      /* this.getNames() */  
+      
   }
 
-  private _filter(val: string): string[] {
-    const formatVal = val.toLocaleLowerCase();
-
-    return this.localidades.filter(localidad => localidad.toLocaleLowerCase().indexOf(formatVal) === 0);
-  }
-  
-   /*  getNames() {
-    this.service.getData().subscribe(response => {
-      this.localidades = response;
-    })
-  }   */
 
 }

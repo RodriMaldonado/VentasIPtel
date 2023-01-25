@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-import { Observable } from 'rxjs';
+import { tap , map } from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +11,14 @@ export class FormService {
 
   constructor(private http:HttpClient) { }
 
+  opts:any = [];
+
   obtenerSucursalesSiga():Observable<any>{
      //obtenemos las sucursales de SIGA
-     
-  const url = "https://consultas.iptel.com.ar/api_iptelplay/obtenersucursales.php"; 
-  return this.http.get(url);
+     return this.opts.length ?
+     of (this.opts) :
 
-  }
+  this.http.get("https://consultas.iptel.com.ar/api_iptelplay/obtenersucursales.php").pipe(tap(data => this.opts = data))  
+  
 }
+}  
