@@ -20,7 +20,6 @@
         <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let Sucursal of filteredOptions | async" [value]="Sucursal.Id">
                 {{Sucursal.Nombre}}
-                
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>

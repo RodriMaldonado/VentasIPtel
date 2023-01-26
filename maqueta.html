@@ -13,7 +13,7 @@
 <body>
 
     <form autocomplete="off" class="row g-3">
-  <!-- <div class="col-md-4">
+  <div class="col-md-4">
     <label for="inputEmail4" class="form-label">Nombre </label>
     <input type="email" class="form-control" id="inputEmail4">
   </div>
@@ -31,10 +31,41 @@
     <label for="inputAddress" class="form-label">Telefono</label>
     <input type="text" class="form-control" id="inputAddress">
   </div>
+
+
   <div class="col-4">
-    <label for="inputAddress2" class="form-label">Cuit/Cuil</label>
-    <input type="text" class="form-control" id="inputAddress2" >
+    <label for="inputAddress2" class="form-label">Tipo de documento</label>
+    <select id="inputState" class="form-select">
+      <option selected>Dni</option>
+      <option>Cuit/Cuil</option>
+    </select>
   </div>
+
+  <div class="col-4">
+    <label for="inputAddress2" class="form-label">Numero de Dni,Cuit/Cuil</label>
+    <input type="text" id="inputState" >
+  </div>
+
+
+
+
+  <div class="col-4">
+    <label for="inputAddress2" class="form-label">Tipo de cliente</label>
+    <select id="inputState" class="form-select">
+      <option selected>Hogar</option>
+      <option>Negocio</option>
+    </select>
+  </div>
+
+  <div class="col-4">
+    <label for="inputAddress2" class="form-label">Sexo</label>
+    <select id="inputState" class="form-select">
+      <option selected>Femenino</option>
+      <option>Masculino</option>
+    </select>
+  </div>
+
+
 
   <div class="col-md-4">
     <label for="inputState" class="form-label">Localidad</label>
@@ -43,24 +74,21 @@
       <option>Saldan</option>
       <option>Venado Tuerto</option>
     </select>
-  </div> -->
-
-
-
-
-
-  
-    <div class="autocomplete" style="width:300px;">
-        <input id="myInput" type="text" name="myCountry" placeholder="Country">
-      </div>
-  
-
-
-
- <!--  <div class="col-md-2">
-    <label for="inputZip" class="form-label">Numero</label>
-    <input type="text" class="form-control" id="inputZip">
   </div>
+
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">Calle</label>
+    <select id="inputState" class="form-select">
+      <option selected>Seleccionar</option>
+      <option>...</option>
+    </select>
+  </div>
+
+  <div class="col-4">
+    <label for="inputAddress2" class="form-label">Calle Numero </label>
+    <input type="text" id="inputState" class="form-select">
+  </div>
+
   
 <div class="col-md-4">
     <label for="inputState" class="form-label">Planes comerciales</label>
@@ -72,7 +100,7 @@
 
   <div class="col-12">
     <button type="submit" class="btn btn-primary">Registrar cliente</button>
-  </div> -->
+  </div>
 </form>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
