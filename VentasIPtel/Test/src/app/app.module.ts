@@ -7,16 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from '@angular/material/autocomplete'
 import {MatInputModule} from '@angular/material/input'
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { LoginComponent } from './pages/form/login/login.component';
-import { FormularioComponent } from './pages/form/formulario/formulario.component';
+import { FormularioCargaDatosComponent } from './pages/formularioCarga/formulario-carga-datos/formulario-carga-datos.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './pages/formularioLogin/login/login.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    FormularioComponent
+    FormularioCargaDatosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

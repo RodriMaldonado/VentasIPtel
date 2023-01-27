@@ -4,13 +4,12 @@ import { Observable } from 'rxjs';
 import { map, startWith,debounceTime,distinctUntilChanged,switchMap,filter } from 'rxjs/operators';
 import { FormService } from 'src/app/servicios/form.service';
 
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-formulario-carga-datos',
+  templateUrl: './formulario-carga-datos.component.html',
+  styleUrls: ['./formulario-carga-datos.component.css']
 })
-export class LoginComponent implements OnInit {
+export class FormularioCargaDatosComponent implements OnInit {
   title = 'autocomplete';
 
   myControl = new FormControl();
@@ -32,7 +31,6 @@ export class LoginComponent implements OnInit {
       }) 
    )
 
-   
   }
  
  _filter(val: any): Observable<any> {
@@ -51,3 +49,7 @@ export class LoginComponent implements OnInit {
 
 
 }
+
+  
+
+
