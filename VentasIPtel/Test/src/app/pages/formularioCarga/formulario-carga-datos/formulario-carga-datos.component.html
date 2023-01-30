@@ -1,4 +1,4 @@
-<div >
+
     <!-- <form>
     <mat-form-field>
         <mat-label>
@@ -12,16 +12,90 @@
         </mat-autocomplete>
     </mat-form-field>
 </form> -->
-<div>
-  <form>
-    <mat-form-field>
-       
-        <input class="input"type="text" matInput  [formControl]="myControl" [matAutocomplete]="auto" />
+<div class="host">
+
+    
+
+     <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text">
+    </mat-form-field> 
+
+    <mat-form-field appearance="fill">
+        <mat-label>Apellido</mat-label>
+        <input matInput type="text">
+    </mat-form-field>
+    
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="pat@ejemplo.com" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Telefono</mat-label>
+        <input matInput type="tel">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Tipo de documento</mat-label>
+        <mat-select>
+          <mat-option value="option">Dni</mat-option>
+          <mat-option value="option">Cuit/Cuil</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Numero de Dni, Cuit/Cuil</mat-label>
+        <input matInput type="number">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Tipo de cliente</mat-label>
+        <mat-select>
+          <mat-option value="option">Hogar</mat-option>
+          <mat-option value="option">Negocio</mat-option>
+        </mat-select>
+      </mat-form-field>    
+
+      <mat-form-field appearance="fill">
+        <mat-label>Sexo</mat-label>
+        <mat-select>
+          <mat-option value="option">Femenino</mat-option>
+          <mat-option value="option">Masculino</mat-option>
+        </mat-select>
+      </mat-form-field> 
+
+      <mat-form-field appearance="fill">
+        <mat-label>Sucursales/Localidad</mat-label>
+        <input type="text" matInput  [formControl]="myControl" [matAutocomplete]="auto" />
         <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let Sucursal of filteredOptions | async" [value]="Sucursal.Id">
                 {{Sucursal.Nombre}}
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>
-</form> 
+
+    <mat-form-field appearance="fill">
+        <mat-label>Calle</mat-label>
+        <mat-select>
+          <mat-option value="option">...</mat-option>
+          <mat-option value="option">...</mat-option>
+        </mat-select>
+      </mat-form-field> 
+
+      <mat-form-field appearance="fill">
+        <mat-label>Calle Numero</mat-label>
+        <input matInput type="number">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Planes Comerciales</mat-label>
+        <mat-select>
+          <mat-option value="option">...</mat-option>
+          <mat-option value="option">...</mat-option>
+        </mat-select>
+      </mat-form-field> 
 </div>

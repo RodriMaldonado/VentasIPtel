@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms'
+import {FormControl,Validators} from '@angular/forms'
 import { Observable } from 'rxjs';
 import { map, startWith,debounceTime,distinctUntilChanged,switchMap,filter } from 'rxjs/operators';
 import { FormService } from 'src/app/servicios/form.service';
+
 
 @Component({
   selector: 'app-formulario-carga-datos',
@@ -12,6 +13,7 @@ import { FormService } from 'src/app/servicios/form.service';
 export class FormularioCargaDatosComponent implements OnInit {
   title = 'autocomplete';
 
+  email = new FormControl('', [Validators.required, Validators.email]);
   myControl = new FormControl();
   Sucursal = [];
   filteredOptions: Observable<any>;
@@ -42,6 +44,14 @@ export class FormularioCargaDatosComponent implements OnInit {
       }))
     )
   }  
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'Debe ingresar un email';
+    }
+
+    return this.email.hasError('email') ? 'Email invalido' : '';
+  }
 
   ngOnInit() {
       
