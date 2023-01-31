@@ -13,6 +13,8 @@ export class FormService {
 
   opts:any = [];
 
+  optsCalles:any = [];
+
   obtenerSucursalesSiga():Observable<any>{
      //obtenemos las sucursales de SIGA
      return this.opts.length ?
@@ -20,5 +22,13 @@ export class FormService {
 
   this.http.get("https://consultas.iptel.com.ar/api_iptelplay/obtenersucursales.php").pipe(tap(data => this.opts = data))  
   
+}
+
+obtenerCallesSiga(idSucursal:number):Observable<any>{
+
+  return this.optsCalles.length ?
+     of (this.optsCalles) :
+
+  this.http.get("https://consultas.iptel.com.ar/api_iptelplay/obtenercalles.php?idSucursal="+idSucursal).pipe(tap(data => this.opts = data))  
 }
 }  

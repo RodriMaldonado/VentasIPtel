@@ -1,21 +1,8 @@
 
-    <!-- <form>
-    <mat-form-field>
-        <mat-label>
-          
-        </mat-label>
-        <input class="input"type="text" matInput  [formControl]="control" [matAutocomplete]="auto" />
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-            <mat-option *ngFor="let localidad of filLocalidades | async" [value]="localidad">
-                {{localidad}}
-            </mat-option>
-        </mat-autocomplete>
-    </mat-form-field>
-</form> -->
+
 <div class="host">
 
-    
-
+ 
      <mat-form-field appearance="fill">
         <mat-label>Nombre</mat-label>
         <input matInput type="text">
@@ -72,19 +59,37 @@
         <mat-label>Sucursales/Localidad</mat-label>
         <input type="text" matInput  [formControl]="myControl" [matAutocomplete]="auto" />
         <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let Sucursal of filteredOptions | async" [value]="Sucursal.Id">
+            <mat-option *ngFor="let Sucursal of filteredOptions | async" [value]="Sucursal.Nombre">
                 {{Sucursal.Nombre}}
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Calle</mat-label>
-        <mat-select>
-          <mat-option value="option">...</mat-option>
-          <mat-option value="option">...</mat-option>
-        </mat-select>
-      </mat-form-field> 
+      <mat-label>Calle</mat-label>
+      <input type="text" matInput  [formControl]="myControl" [matAutocomplete]="auto" />
+      <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let Calle of filteredOptionsCalles | async" [value]="Calle.Id">
+              {{Calle.Id}}
+          </mat-option>
+      </mat-autocomplete>
+  </mat-form-field>
+
+
+   <!--  <div class="row">
+      <button id="btns" class="btn my-2 btn-lg" (click)="obtenerCalles(3)" ><abbr title="Sucursales SIGA">Obtener calles</abbr></button>
+  </div>
+  <div>
+      Nombre de calle:{{calle1}}
+  </div>
+  <select name="calles" ngModel>
+      <option value="" disabled>Seleccione una localidad</option>
+      <option *ngFor="let calle of listaCalles" [ngValue]="calle.Id">
+        {{ calle.Nombre}}
+      </option>
+    </select> -->
+
+
 
       <mat-form-field appearance="fill">
         <mat-label>Calle Numero</mat-label>
@@ -98,4 +103,7 @@
           <mat-option value="option">...</mat-option>
         </mat-select>
       </mat-form-field> 
+
+      <button class="btn btn-primary">Registrar cliente</button>
+   
 </div>
