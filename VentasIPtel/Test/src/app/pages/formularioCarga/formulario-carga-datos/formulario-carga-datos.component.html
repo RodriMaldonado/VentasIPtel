@@ -70,7 +70,7 @@
       <input type="text" matInput  [formControl]="myControl" [matAutocomplete]="auto" />
       <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let Calle of filteredOptionsCalles | async" [value]="Calle.Id">
-              {{Calle.Id}}
+              {{Calle.Nombre}}
           </mat-option>
       </mat-autocomplete>
   </mat-form-field>

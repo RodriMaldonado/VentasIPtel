@@ -71,7 +71,7 @@ export class FormularioCargaDatosComponent implements OnInit {
   _filterCalles(val: any):Observable<any> {
     return this.service.obtenerCallesSiga(this.idSucursal)
     .pipe(
-      map(response => response.calles.Calle[1].filter((Calle:any) => { 
+      map(response => response.calles.Calle[2].filter((Calle:any) => { 
         return Calle.Nombre.toLowerCase().indexOf(val.toLowerCase()) === 0
       }))
     )
