@@ -68,6 +68,8 @@ export class FormularioCargaDatosComponent implements OnInit {
     )
   }  
 
+
+/* Llamado al servicio, mapeado y filtrado de calles */
   _filterCalles(val: any):Observable<any> {
     return this.service.obtenerCallesSiga(this.idSucursal)
     .pipe(
